@@ -1,0 +1,4 @@
+{
+  "key1": "val1",
+  ${{ acc.MY_KEY }}: ${{ acc.MY_VAL }}
+}
