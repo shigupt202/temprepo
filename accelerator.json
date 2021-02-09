@@ -1,0 +1,36 @@
+{
+  "name": "Nodejs accelerator",
+  "description": "This is a nodejs accelerator",
+  "variables" : [
+  {
+    "workflowPath": ".github/workflows/deploy.yml",
+    "variables": [
+      {
+        "name": "RESOURCE_GROUP",
+        "description": "Enter the name of the resource group"
+      },
+      {
+        "name": "RESOURCE_GROUP_LOCATION",
+        "description": "Enter the resource group location"
+      },
+      {
+        "name": "AKS_CLUSTER_NAME",
+        "description": "Enter the name of the cluster"
+      }
+      ]
+  }
+  ],
+  "secrets" : [
+    {
+      "name": "AZURE_CREDENTIALS",
+      "description": "Enter your azure credentials (Output of az ad sp create-for-rbac --sdk-auth command)"
+    }
+    ],
+  "startupWorkflows" : [
+    {
+      "path": ".github/workflows/provisionResources.yml",
+      "name": "provisionResources.yml",
+      "ref": "main"
+    }
+    ]
+}
